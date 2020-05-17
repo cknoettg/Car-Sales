@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-//decide is we should use rootReducer or just reducer
+//decide if we should use rootReducer or just reducer
 import rootReducer from './reducers/carReducer';
 
 import 'bulma/css/bulma.css';
