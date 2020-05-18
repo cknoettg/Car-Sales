@@ -1,5 +1,4 @@
 const initialState = {
-    //moved state from App to reducer
     additionalPrice: 0,
     car: {
       price: 26395,
@@ -14,31 +13,32 @@ const initialState = {
       { id: 3, name: 'Premium sound system', price: 500 },
       { id: 4, name: 'Rear spoiler', price: 250 }
     ]
-}
-
-export const reducer = (state = initialState,action) => {
+  };
+  
+  export const carReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "ADD_FEATURE":
-          return {
-            ...state,
-            car: {
-              ...state.car,
-              features: [...state.car.features, action.payload],
-              price: state.car.price + action.payload.price
-            },
-            additionalFeatures: state.additionalFeatures.filter(feature => feature.id !== action.payload.id)
-          };
-        case "REMOVE_FEATURE":
-          return {
-            ...state,
-            car: {
-              ...state.car,
-              features: state.car.features.filter(feature => feature.id !== action.payload.id),
-              price: state.car.price - action.payload.price
-            },
-            additionalFeatures: [...state.additionalFeatures, action.payload]
-          };
-        default:
-          return state;
-      }
-}
+      case "ADD_FEATURE":
+        return {
+          ...state,
+          car: {
+            ...state.car,
+            features: [...state.car.features, action.payload],
+            price: state.car.price + action.payload.price
+          },
+          additionalFeatures: state.additionalFeatures.filter(feature => feature.id !== action.payload.id)
+        };
+      case "REMOVE_FEATURE":
+        return {
+          ...state,
+          car: {
+            ...state.car,
+            features: state.car.features.filter(feature => feature.id !== action.payload.id),
+            price: state.car.price - action.payload.price
+          },
+          additionalFeatures: [...state.additionalFeatures, action.payload]
+        };
+      default:
+        return state;
+    }
+  };
+  

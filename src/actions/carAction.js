@@ -1,16 +1,10 @@
-export const ADD_ITEM = "ADD_ITEM";
-export const REMOVE_ITEM = "REMOVE_ITEM";
+export const ADD_FEATURE = "ADD_FEATURE";
+export const REMOVE_FEATURE = "REMOVE_FEATURE";
 
-export const addItem = item => {
-    return {
-      type: "ADD_ITEM",
-      payload: item
-    };
-  };
-  
-  export const removeItem = item => {
-    return {
-      type: "REMOVE_ITEM",
-      payload: item
-    };
-  };
+export const addFeature = feature => {
+  return {type: ADD_FEATURE, payload: feature};
+};
+
+export const removeFeature = feature => {
+  return {type: REMOVE_FEATURE, payload: feature};
+};
