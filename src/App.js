@@ -4,6 +4,8 @@ import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 import {connect} from "react-redux";
+//STRETCH
+import ApiFetch from "./components/ApiFetch";
 
 const App = props => {
   
@@ -16,6 +18,9 @@ const App = props => {
       <div className="box">
         <AdditionalFeatures additionalFeatures={props.additionalFeatures} />
         <Total car={props.car} additionalPrice={props.additionalPrice} />
+      </div>
+      <div>
+        <ApiFetch />
       </div>
     </div>
   );
