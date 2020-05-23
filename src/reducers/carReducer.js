@@ -12,7 +12,9 @@ const initialState = {
       { id: 2, name: 'Racing detail package', price: 1500 },
       { id: 3, name: 'Premium sound system', price: 500 },
       { id: 4, name: 'Rear spoiler', price: 250 }
-    ]
+    ],
+    response:[],
+    error: null
   };
   
   export const carReducer = (state = initialState, action) => {
@@ -36,6 +38,23 @@ const initialState = {
             price: state.car.price - action.payload.price
           },
           additionalFeatures: [...state.additionalFeatures, action.payload]
+        };
+      //STRETCH
+      case "FETCH_DATA_REQUEST":
+        return {
+          ...state,
+          error: null
+        };
+      case "FETCH_DATA_SUCCESS":
+        return {
+          ...state,
+          response: action.response
+        };
+      case "FETCH_DATA_ERROR":
+        return {
+          ...state,
+          error: action.payload.error,
+          response: []
         };
       default:
         return state;
